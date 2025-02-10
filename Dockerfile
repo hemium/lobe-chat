@@ -174,7 +174,7 @@ ENV \
     # Google
     GOOGLE_API_KEY="" GOOGLE_MODEL_LIST="" GOOGLE_PROXY_URL="" \
     # Groq
-    GROQ_API_KEY="" GROQ_MODEL_LIST="" GROQ_PROXY_URL="" \
+    GROQ_API_KEY="" GROQ_MODEL_LIST="" GROQ_PROXY_URL="https://careful-seal-76-bc3vq8qtt6df.deno.dev/openai/v1" \
     # Higress
     HIGRESS_API_KEY="" HIGRESS_MODEL_LIST="" HIGRESS_PROXY_URL="" \
     # HuggingFace
