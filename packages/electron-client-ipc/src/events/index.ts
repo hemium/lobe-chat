@@ -1,5 +1,7 @@
 import { LocalFilesDispatchEvents } from './localFile';
 import { MenuDispatchEvents } from './menu';
+import { NotificationDispatchEvents } from './notification';
+import { ProtocolBroadcastEvents, ProtocolDispatchEvents } from './protocol';
 import { RemoteServerBroadcastEvents, RemoteServerDispatchEvents } from './remoteServer';
 import { DesktopSettingsDispatchEvents } from './settings';
 import { ShortcutDispatchEvents } from './shortcut';
@@ -23,7 +25,9 @@ export interface ClientDispatchEvents
     RemoteServerDispatchEvents,
     UploadFilesDispatchEvents,
     TrayDispatchEvents,
-    DesktopSettingsDispatchEvents {}
+    DesktopSettingsDispatchEvents,
+    NotificationDispatchEvents,
+    ProtocolDispatchEvents {}
 
 export type ClientDispatchEventKey = keyof ClientDispatchEvents;
 
@@ -38,7 +42,8 @@ export type ClientEventReturnType<T extends ClientDispatchEventKey> = ReturnType
 export interface MainBroadcastEvents
   extends AutoUpdateBroadcastEvents,
     RemoteServerBroadcastEvents,
-    SystemBroadcastEvents {}
+    SystemBroadcastEvents,
+    ProtocolBroadcastEvents {}
 
 export type MainBroadcastEventKey = keyof MainBroadcastEvents;
 

@@ -1,7 +1,47 @@
-import { AIChatModelCard } from '@/types/aiModel';
+import { AIChatModelCard, AIImageModelCard } from '@/types/aiModel';
 
 // https://siliconflow.cn/zh-cn/models
 const siliconcloudChatModels: AIChatModelCard[] = [
+  {
+    abilities: {
+      functionCall: true,
+      reasoning: true,
+    },
+    contextWindowTokens: 131_072,
+    description:
+      'GLM-4.5 是一款专为智能体应用打造的基础模型，使用了混合专家（Mixture-of-Experts）架构。在工具调用、网页浏览、软件工程、前端编程领域进行了深度优化，支持无缝接入 Claude Code、Roo Code 等代码智能体中使用。GLM-4.5 采用混合推理模式，可以适应复杂推理和日常使用等多种应用场景。',
+    displayName: 'GLM-4.5',
+    id: 'zai-org/GLM-4.5',
+    pricing: {
+      currency: 'CNY',
+      units: [
+        { name: 'textInput', rate: 3.5, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 14, strategy: 'fixed', unit: 'millionTokens' },
+      ],
+    },
+    releasedAt: '2025-07-28',
+    type: 'chat',
+  },
+  {
+    abilities: {
+      functionCall: true,
+      reasoning: true,
+    },
+    contextWindowTokens: 131_072,
+    description:
+      'GLM-4.5-Air 是一款专为智能体应用打造的基础模型，使用了混合专家（Mixture-of-Experts）架构。在工具调用、网页浏览、软件工程、前端编程领域进行了深度优化，支持无缝接入 Claude Code、Roo Code 等代码智能体中使用。GLM-4.5 采用混合推理模式，可以适应复杂推理和日常使用等多种应用场景。',
+    displayName: 'GLM-4.5-Air',
+    id: 'zai-org/GLM-4.5-Air',
+    pricing: {
+      currency: 'CNY',
+      units: [
+        { name: 'textInput', rate: 1, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 6, strategy: 'fixed', unit: 'millionTokens' },
+      ],
+    },
+    releasedAt: '2025-07-28',
+    type: 'chat',
+  },
   {
     abilities: {
       reasoning: true,
@@ -13,8 +53,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'ascend-tribe/pangu-pro-moe',
     pricing: {
       currency: 'CNY',
-      input: 1,
-      output: 4,
+      units: [
+        { name: 'textInput', rate: 1, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 4, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-06-17',
     type: 'chat',
@@ -27,10 +69,44 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'baidu/ERNIE-4.5-300B-A47B',
     pricing: {
       currency: 'CNY',
-      input: 2,
-      output: 8,
+      units: [
+        { name: 'textInput', rate: 2, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 8, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-06-30',
+    type: 'chat',
+  },
+  {
+    contextWindowTokens: 131_072,
+    description:
+      'Kimi K2 是一款具备超强代码和 Agent 能力的 MoE 架构基础模型，总参数 1T，激活参数 32B。在通用知识推理、编程、数学、Agent 等主要类别的基准性能测试中，K2 模型的性能超过其他主流开源模型。',
+    displayName: 'Kimi K2 Instruct',
+    id: 'moonshotai/Kimi-K2-Instruct',
+    pricing: {
+      currency: 'CNY',
+      units: [
+        { name: 'textInput', rate: 4, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 16, strategy: 'fixed', unit: 'millionTokens' },
+      ],
+    },
+    releasedAt: '2025-07-11',
+    type: 'chat',
+  },
+  {
+    contextWindowTokens: 131_072,
+    description:
+      'Kimi K2 是一款具备超强代码和 Agent 能力的 MoE 架构基础模型，总参数 1T，激活参数 32B。在通用知识推理、编程、数学、Agent 等主要类别的基准性能测试中，K2 模型的性能超过其他主流开源模型。',
+    displayName: 'Kimi K2 Instruct (Pro)',
+    id: 'Pro/moonshotai/Kimi-K2-Instruct',
+    pricing: {
+      currency: 'CNY',
+      units: [
+        { name: 'textInput', rate: 4, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 16, strategy: 'fixed', unit: 'millionTokens' },
+      ],
+    },
+    releasedAt: '2025-07-11',
     type: 'chat',
   },
   {
@@ -44,8 +120,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'moonshotai/Kimi-Dev-72B',
     pricing: {
       currency: 'CNY',
-      input: 2,
-      output: 8,
+      units: [
+        { name: 'textInput', rate: 2, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 8, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-06-17',
     type: 'chat',
@@ -61,8 +139,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'tencent/Hunyuan-A13B-Instruct',
     pricing: {
       currency: 'CNY',
-      input: 1,
-      output: 4,
+      units: [
+        { name: 'textInput', rate: 1, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 4, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-06-27',
     type: 'chat',
@@ -78,8 +158,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'MiniMaxAI/MiniMax-M1-80k',
     pricing: {
       currency: 'CNY',
-      input: 4,
-      output: 16,
+      units: [
+        { name: 'textInput', rate: 4, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 16, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-06-16',
     type: 'chat',
@@ -95,10 +177,73 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Tongyi-Zhiwen/QwenLong-L1-32B',
     pricing: {
       currency: 'CNY',
-      input: 1,
-      output: 4,
+      units: [
+        { name: 'textInput', rate: 1, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 4, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-05-26',
+    type: 'chat',
+  },
+  {
+    abilities: {
+      functionCall: true,
+      reasoning: true,
+    },
+    contextWindowTokens: 262_144,
+    description:
+      'Qwen3-235B-A22B-Thinking-2507 是由阿里巴巴通义千问团队开发的 Qwen3 系列大型语言模型中的一员，专注于高难度的复杂推理任务。该模型基于混合专家（MoE）架构，总参数量达 2350 亿，而在处理每个 token 时仅激活约 220 亿参数，从而在保持强大性能的同时提高了计算效率。作为一个专门的“思考”模型，它在逻辑推理、数学、科学、编程和学术基准测试等需要人类专业知识的任务上表现显著提升，达到了开源思考模型中的顶尖水平。此外，模型还增强了通用能力，如指令遵循、工具使用和文本生成，并原生支持 256K 的长上下文理解能力，非常适合用于需要深度推理和处理长文档的场景。',
+    displayName: 'Qwen3 235B A22B Thinking 2507',
+    id: 'Qwen/Qwen3-235B-A22B-Thinking-2507',
+    organization: 'Qwen',
+    pricing: {
+      currency: 'CNY',
+      units: [
+        { name: 'textInput', rate: 2.5, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 10, strategy: 'fixed', unit: 'millionTokens' },
+      ],
+    },
+    releasedAt: '2025-07-25',
+    type: 'chat',
+  },
+  {
+    abilities: {
+      functionCall: true,
+    },
+    contextWindowTokens: 262_144,
+    description:
+      'Qwen3-235B-A22B-Instruct-2507 是由阿里云通义千问团队开发的 Qwen3 系列中的一款旗舰级混合专家（MoE）大语言模型。该模型拥有 2350 亿总参数，每次推理激活 220 亿参数。它是作为 Qwen3-235B-A22B 非思考模式的更新版本发布的，专注于在指令遵循、逻辑推理、文本理解、数学、科学、编程及工具使用等通用能力上实现显著提升。此外，模型增强了对多语言长尾知识的覆盖，并能更好地对齐用户在主观和开放性任务上的偏好，以生成更有帮助和更高质量的文本。',
+    displayName: 'Qwen3 235B A22B Instruct 2507',
+    id: 'Qwen/Qwen3-235B-A22B-Instruct-2507',
+    organization: 'Qwen',
+    pricing: {
+      currency: 'CNY',
+      units: [
+        { name: 'textInput', rate: 2.5, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 10, strategy: 'fixed', unit: 'millionTokens' },
+      ],
+    },
+    releasedAt: '2025-07-21',
+    type: 'chat',
+  },
+  {
+    abilities: {
+      functionCall: true,
+    },
+    contextWindowTokens: 262_144,
+    description:
+      'Qwen3-30B-A3B-Instruct-2507 是 Qwen3-30B-A3B 非思考模式的更新版本。这是一个拥有 305 亿总参数和 33 亿激活参数的混合专家（MoE）模型。该模型在多个方面进行了关键增强，包括显著提升了指令遵循、逻辑推理、文本理解、数学、科学、编码和工具使用等通用能力。同时，它在多语言的长尾知识覆盖范围上取得了实质性进展，并能更好地与用户在主观和开放式任务中的偏好对齐，从而能够生成更有帮助的回复和更高质量的文本。此外，该模型的长文本理解能力也增强到了 256K。此模型仅支持非思考模式，其输出中不会生成 `<think></think>` 标签。',
+    displayName: 'Qwen3 30B A3B Instruct 2507',
+    id: 'Qwen/Qwen3-30B-A3B-Instruct-2507',
+    organization: 'Qwen',
+    pricing: {
+      currency: 'CNY',
+      units: [
+        { name: 'textInput', rate: 0.7, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 2.8, strategy: 'fixed', unit: 'millionTokens' },
+      ],
+    },
+    releasedAt: '2025-07-29',
     type: 'chat',
   },
   {
@@ -114,8 +259,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     organization: 'Qwen',
     pricing: {
       currency: 'CNY',
-      input: 2.5,
-      output: 10,
+      units: [
+        { name: 'textInput', rate: 2.5, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 10, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-04-28',
     settings: {
@@ -136,8 +283,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     organization: 'Qwen',
     pricing: {
       currency: 'CNY',
-      input: 1,
-      output: 4,
+      units: [
+        { name: 'textInput', rate: 1, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 4, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-04-28',
     settings: {
@@ -158,8 +307,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     organization: 'Qwen',
     pricing: {
       currency: 'CNY',
-      input: 0.7,
-      output: 2.8,
+      units: [
+        { name: 'textInput', rate: 0.7, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 2.8, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-04-28',
     settings: {
@@ -180,8 +331,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     organization: 'Qwen',
     pricing: {
       currency: 'CNY',
-      input: 0.5,
-      output: 2,
+      units: [
+        { name: 'textInput', rate: 0.5, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 2, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-04-28',
     settings: {
@@ -203,8 +356,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     organization: 'Qwen',
     pricing: {
       currency: 'CNY',
-      input: 0,
-      output: 0,
+      units: [
+        { name: 'textInput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-04-28',
     settings: {
@@ -225,8 +380,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'THUDM/GLM-4.1V-9B-Thinking',
     pricing: {
       currency: 'CNY',
-      input: 0,
-      output: 0,
+      units: [
+        { name: 'textInput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-07-02',
     type: 'chat',
@@ -243,8 +400,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Pro/THUDM/GLM-4.1V-9B-Thinking',
     pricing: {
       currency: 'CNY',
-      input: 0.25,
-      output: 1,
+      units: [
+        { name: 'textInput', rate: 0.25, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 1, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-07-02',
     type: 'chat',
@@ -260,8 +419,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'THUDM/GLM-Z1-Rumination-32B-0414',
     pricing: {
       currency: 'CNY',
-      input: 1,
-      output: 4,
+      units: [
+        { name: 'textInput', rate: 1, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 4, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-04-14',
     type: 'chat',
@@ -278,8 +439,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'THUDM/GLM-Z1-32B-0414',
     pricing: {
       currency: 'CNY',
-      input: 1,
-      output: 4,
+      units: [
+        { name: 'textInput', rate: 1, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 4, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-04-14',
     type: 'chat',
@@ -296,8 +459,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'THUDM/GLM-Z1-9B-0414',
     pricing: {
       currency: 'CNY',
-      input: 0,
-      output: 0,
+      units: [
+        { name: 'textInput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-04-14',
     type: 'chat',
@@ -313,8 +478,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'THUDM/GLM-4-32B-0414',
     pricing: {
       currency: 'CNY',
-      input: 1.89,
-      output: 1.89,
+      units: [
+        { name: 'textInput', rate: 1.89, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 1.89, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-04-14',
     type: 'chat',
@@ -330,8 +497,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'THUDM/GLM-4-9B-0414',
     pricing: {
       currency: 'CNY',
-      input: 0,
-      output: 0,
+      units: [
+        { name: 'textInput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-04-14',
     type: 'chat',
@@ -347,8 +516,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'THUDM/glm-4-9b-chat',
     pricing: {
       currency: 'CNY',
-      input: 0,
-      output: 0,
+      units: [
+        { name: 'textInput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2024-06-04',
     type: 'chat',
@@ -364,8 +535,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Pro/THUDM/glm-4-9b-chat',
     pricing: {
       currency: 'CNY',
-      input: 0.6,
-      output: 0.6,
+      units: [
+        { name: 'textInput', rate: 0.6, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0.6, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2024-06-04',
     type: 'chat',
@@ -382,8 +555,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'deepseek-ai/DeepSeek-R1-0528-Qwen3-8B',
     pricing: {
       currency: 'CNY',
-      input: 0,
-      output: 0,
+      units: [
+        { name: 'textInput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -399,8 +574,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'deepseek-ai/DeepSeek-R1',
     pricing: {
       currency: 'CNY',
-      input: 4,
-      output: 16,
+      units: [
+        { name: 'textInput', rate: 4, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 16, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -415,8 +592,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'deepseek-ai/DeepSeek-V3',
     pricing: {
       currency: 'CNY',
-      input: 2,
-      output: 8,
+      units: [
+        { name: 'textInput', rate: 2, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 8, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -432,8 +611,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Pro/deepseek-ai/DeepSeek-R1',
     pricing: {
       currency: 'CNY',
-      input: 4,
-      output: 16,
+      units: [
+        { name: 'textInput', rate: 4, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 16, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -448,8 +629,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Pro/deepseek-ai/DeepSeek-V3',
     pricing: {
       currency: 'CNY',
-      input: 2,
-      output: 8,
+      units: [
+        { name: 'textInput', rate: 2, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 8, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -465,8 +648,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'deepseek-ai/DeepSeek-R1-Distill-Qwen-32B',
     pricing: {
       currency: 'CNY',
-      input: 1.26,
-      output: 1.26,
+      units: [
+        { name: 'textInput', rate: 1.26, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 1.26, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -482,8 +667,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'deepseek-ai/DeepSeek-R1-Distill-Qwen-14B',
     pricing: {
       currency: 'CNY',
-      input: 0.7,
-      output: 0.7,
+      units: [
+        { name: 'textInput', rate: 0.7, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0.7, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -499,8 +686,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'deepseek-ai/DeepSeek-R1-Distill-Qwen-7B',
     pricing: {
       currency: 'CNY',
-      input: 0,
-      output: 0,
+      units: [
+        { name: 'textInput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -516,8 +705,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Pro/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B',
     pricing: {
       currency: 'CNY',
-      input: 0.35,
-      output: 0.35,
+      units: [
+        { name: 'textInput', rate: 0.35, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0.35, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -532,8 +723,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'deepseek-ai/DeepSeek-V2.5',
     pricing: {
       currency: 'CNY',
-      input: 1.33,
-      output: 1.33,
+      units: [
+        { name: 'textInput', rate: 1.33, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 1.33, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -548,8 +741,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'deepseek-ai/deepseek-vl2',
     pricing: {
       currency: 'CNY',
-      input: 0.99,
-      output: 0.99,
+      units: [
+        { name: 'textInput', rate: 0.99, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0.99, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -565,8 +760,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Qwen/QVQ-72B-Preview',
     pricing: {
       currency: 'CNY',
-      input: 9.9,
-      output: 9.9,
+      units: [
+        { name: 'textInput', rate: 9.9, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 9.9, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -582,8 +779,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Qwen/QwQ-32B',
     pricing: {
       currency: 'CNY',
-      input: 1,
-      output: 4,
+      units: [
+        { name: 'textInput', rate: 1, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 4, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -598,8 +797,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Qwen/Qwen2.5-7B-Instruct',
     pricing: {
       currency: 'CNY',
-      input: 0,
-      output: 0,
+      units: [
+        { name: 'textInput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -614,8 +815,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Pro/Qwen/Qwen2.5-7B-Instruct',
     pricing: {
       currency: 'CNY',
-      input: 0.35,
-      output: 0.35,
+      units: [
+        { name: 'textInput', rate: 0.35, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0.35, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -630,8 +833,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Qwen/Qwen2.5-14B-Instruct',
     pricing: {
       currency: 'CNY',
-      input: 0.7,
-      output: 0.7,
+      units: [
+        { name: 'textInput', rate: 0.7, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0.7, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -646,8 +851,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Qwen/Qwen2.5-32B-Instruct',
     pricing: {
       currency: 'CNY',
-      input: 1.26,
-      output: 1.26,
+      units: [
+        { name: 'textInput', rate: 1.26, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 1.26, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -662,8 +869,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Qwen/Qwen2.5-72B-Instruct',
     pricing: {
       currency: 'CNY',
-      input: 4.13,
-      output: 4.13,
+      units: [
+        { name: 'textInput', rate: 4.13, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 4.13, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -678,8 +887,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Qwen/Qwen2.5-72B-Instruct-128K',
     pricing: {
       currency: 'CNY',
-      input: 4.13,
-      output: 4.13,
+      units: [
+        { name: 'textInput', rate: 4.13, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 4.13, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -691,8 +902,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Qwen/Qwen2.5-Coder-7B-Instruct',
     pricing: {
       currency: 'CNY',
-      input: 0,
-      output: 0,
+      units: [
+        { name: 'textInput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -704,8 +917,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Pro/Qwen/Qwen2.5-Coder-7B-Instruct',
     pricing: {
       currency: 'CNY',
-      input: 0.35,
-      output: 0.35,
+      units: [
+        { name: 'textInput', rate: 0.35, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0.35, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -717,8 +932,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Qwen/Qwen2.5-Coder-32B-Instruct',
     pricing: {
       currency: 'CNY',
-      input: 1.26,
-      output: 1.26,
+      units: [
+        { name: 'textInput', rate: 1.26, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 1.26, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -730,8 +947,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Qwen/Qwen2-7B-Instruct',
     pricing: {
       currency: 'CNY',
-      input: 0,
-      output: 0,
+      units: [
+        { name: 'textInput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -743,8 +962,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Pro/Qwen/Qwen2-7B-Instruct',
     pricing: {
       currency: 'CNY',
-      input: 0.35,
-      output: 0.35,
+      units: [
+        { name: 'textInput', rate: 0.35, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0.35, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -759,8 +980,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Qwen/Qwen2-VL-72B-Instruct',
     pricing: {
       currency: 'CNY',
-      input: 4.13,
-      output: 4.13,
+      units: [
+        { name: 'textInput', rate: 4.13, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 4.13, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -775,8 +998,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Pro/Qwen/Qwen2.5-VL-7B-Instruct',
     pricing: {
       currency: 'CNY',
-      input: 0.35,
-      output: 0.35,
+      units: [
+        { name: 'textInput', rate: 0.35, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0.35, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -791,8 +1016,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Qwen/Qwen2.5-VL-32B-Instruct',
     pricing: {
       currency: 'CNY',
-      input: 1.89,
-      output: 1.89,
+      units: [
+        { name: 'textInput', rate: 1.89, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 1.89, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -807,8 +1034,10 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'Qwen/Qwen2.5-VL-72B-Instruct',
     pricing: {
       currency: 'CNY',
-      input: 4.13,
-      output: 4.13,
+      units: [
+        { name: 'textInput', rate: 4.13, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 4.13, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
@@ -823,13 +1052,37 @@ const siliconcloudChatModels: AIChatModelCard[] = [
     id: 'internlm/internlm2_5-7b-chat',
     pricing: {
       currency: 'CNY',
-      input: 0,
-      output: 0,
+      units: [
+        { name: 'textInput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     type: 'chat',
   },
 ];
 
-export const allModels = [...siliconcloudChatModels];
+const siliconcloudImageModels: AIImageModelCard[] = [
+  {
+    description:
+      'Kolors 是由快手 Kolors 团队开发的基于潜在扩散的大规模文本到图像生成模型。该模型通过数十亿文本-图像对的训练，在视觉质量、复杂语义准确性以及中英文字符渲染方面展现出显著优势。它不仅支持中英文输入，在理解和生成中文特定内容方面也表现出色',
+    displayName: 'Kolors',
+    enabled: true,
+    id: 'Kwai-Kolors/Kolors',
+    parameters: {
+      prompt: {
+        default: '',
+      },
+      seed: { default: null },
+      size: {
+        default: '1024x1024',
+        enum: ['1024x1024', '960x1280', '768x1024', '720x1440', '720x1280'],
+      },
+    },
+    releasedAt: '2024-07-06',
+    type: 'image',
+  },
+];
+
+export const allModels = [...siliconcloudChatModels, ...siliconcloudImageModels];
 
 export default allModels;

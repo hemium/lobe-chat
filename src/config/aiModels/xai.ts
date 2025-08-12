@@ -1,4 +1,4 @@
-import { AIChatModelCard } from '@/types/aiModel';
+import { AIChatModelCard, AIImageModelCard } from '@/types/aiModel';
 
 // https://docs.x.ai/docs/models
 const xaiChatModels: AIChatModelCard[] = [
@@ -16,9 +16,11 @@ const xaiChatModels: AIChatModelCard[] = [
     enabled: true,
     id: 'grok-4',
     pricing: {
-      cachedInput: 0.75,
-      input: 3,
-      output: 15,
+      units: [
+        { name: 'textInput_cacheRead', rate: 0.75, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textInput', rate: 3, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 15, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-07-09',
     settings: {
@@ -39,9 +41,11 @@ const xaiChatModels: AIChatModelCard[] = [
     displayName: 'Grok 3',
     id: 'grok-3',
     pricing: {
-      cachedInput: 0.75,
-      input: 3,
-      output: 15,
+      units: [
+        { name: 'textInput_cacheRead', rate: 0.75, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textInput', rate: 3, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 15, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-04-03',
     settings: {
@@ -60,9 +64,11 @@ const xaiChatModels: AIChatModelCard[] = [
     displayName: 'Grok 3 (Fast mode)',
     id: 'grok-3-fast',
     pricing: {
-      cachedInput: 1.25,
-      input: 5,
-      output: 25,
+      units: [
+        { name: 'textInput_cacheRead', rate: 1.25, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textInput', rate: 5, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 25, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-04-03',
     settings: {
@@ -83,9 +89,11 @@ const xaiChatModels: AIChatModelCard[] = [
     enabled: true,
     id: 'grok-3-mini',
     pricing: {
-      cachedInput: 0.075,
-      input: 0.3,
-      output: 0.5,
+      units: [
+        { name: 'textInput_cacheRead', rate: 0.075, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textInput', rate: 0.3, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 0.5, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-04-03',
     settings: {
@@ -106,9 +114,11 @@ const xaiChatModels: AIChatModelCard[] = [
     displayName: 'Grok 3 Mini (Fast mode)',
     id: 'grok-3-mini-fast',
     pricing: {
-      cachedInput: 0.15,
-      input: 0.6,
-      output: 4,
+      units: [
+        { name: 'textInput_cacheRead', rate: 0.15, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textInput', rate: 0.6, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 4, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2025-04-03',
     settings: {
@@ -127,8 +137,10 @@ const xaiChatModels: AIChatModelCard[] = [
     displayName: 'Grok 2 1212',
     id: 'grok-2-1212', // legacy
     pricing: {
-      input: 2,
-      output: 10,
+      units: [
+        { name: 'textInput', rate: 2, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 10, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2024-12-12',
     settings: {
@@ -147,8 +159,10 @@ const xaiChatModels: AIChatModelCard[] = [
     displayName: 'Grok 2 Vision 1212',
     id: 'grok-2-vision-1212',
     pricing: {
-      input: 2,
-      output: 10,
+      units: [
+        { name: 'textInput', rate: 2, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 10, strategy: 'fixed', unit: 'millionTokens' },
+      ],
     },
     releasedAt: '2024-12-12',
     settings: {
@@ -158,6 +172,23 @@ const xaiChatModels: AIChatModelCard[] = [
   },
 ];
 
-export const allModels = [...xaiChatModels];
+const xaiImageModels: AIImageModelCard[] = [
+  {
+    description:
+      '我们最新的图像生成模型可以根据文本提示生成生动逼真的图像。它在营销、社交媒体和娱乐等领域的图像生成方面表现出色。',
+    displayName: 'Grok 2 Image 1212',
+    enabled: true,
+    id: 'grok-2-image-1212',
+    parameters: {
+      prompt: {
+        default: '',
+      },
+    },
+    releasedAt: '2024-12-12',
+    type: 'image',
+  },
+];
+
+export const allModels = [...xaiChatModels, ...xaiImageModels];
 
 export default allModels;
