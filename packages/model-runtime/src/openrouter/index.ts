@@ -1,9 +1,9 @@
-import OpenRouterModels from '@/config/aiModels/openrouter';
+import { openrouter as OpenRouterModels } from 'model-bank';
 
 import { ModelProvider } from '../types';
 import { processMultiProviderModelList } from '../utils/modelParse';
 import { createOpenAICompatibleRuntime } from '../utils/openaiCompatibleFactory';
-import { OpenRouterModelCard, OpenRouterModelExtraInfo, OpenRouterReasoning } from './type';
+import { OpenRouterModelCard, OpenRouterReasoning } from './type';
 
 const formatPrice = (price: string) => {
   if (price === '-1') return undefined;
@@ -55,48 +55,48 @@ export const LobeOpenRouterAI = createOpenAICompatibleRuntime({
   debug: {
     chatCompletion: () => process.env.DEBUG_OPENROUTER_CHAT_COMPLETION === '1',
   },
-  models: async ({ client }) => {
-    const modelsPage = (await client.models.list()) as any;
-    const modelList: OpenRouterModelCard[] = modelsPage.data;
+  models: async () => {
+    let modelList: OpenRouterModelCard[] = [];
 
-    const modelsExtraInfo: OpenRouterModelExtraInfo[] = [];
     try {
       const response = await fetch('https://openrouter.ai/api/frontend/models');
       if (response.ok) {
         const data = await response.json();
-        modelsExtraInfo.push(...data['data']);
+        modelList = data['data'];
       }
     } catch (error) {
       console.error('Failed to fetch OpenRouter frontend models:', error);
+      return [];
     }
 
-    // 先处理抓取的模型信息，转换为标准格式
+    // 处理前端获取的模型信息，转换为标准格式
     const formattedModels = modelList.map((model) => {
-      const extraInfo = modelsExtraInfo.find(
-        (m) => m.slug.toLowerCase() === model.id.toLowerCase(),
-      );
+      const { endpoint } = model;
+      const endpointModel = endpoint?.model;
+
+      const displayName = model.slug?.toLowerCase().includes('deepseek')
+        ? (model.name ?? model.slug)
+        : (model.short_name ?? model.name ?? model.slug);
+
+      const inputModalities = endpointModel?.input_modalities || model.input_modalities;
 
       return {
-        contextWindowTokens: model.context_length,
-        description: model.description,
-        displayName: model.name,
-        functionCall:
-          model.description.includes('function calling') ||
-          model.description.includes('tools') ||
-          extraInfo?.endpoint?.supports_tool_parameters ||
-          false,
-        id: model.id,
+        contextWindowTokens: endpoint?.context_length || model.context_length,
+        description: endpointModel?.description || model.description,
+        displayName,
+        functionCall: endpoint?.supports_tool_parameters || false,
+        id: endpoint?.model_variant_slug || model.slug,
         maxOutput:
-          typeof model.top_provider.max_completion_tokens === 'number'
-            ? model.top_provider.max_completion_tokens
+          typeof endpoint?.max_completion_tokens === 'number'
+            ? endpoint.max_completion_tokens
             : undefined,
         pricing: {
-          input: formatPrice(model.pricing.prompt),
-          output: formatPrice(model.pricing.completion),
+          input: formatPrice(endpoint?.pricing?.prompt),
+          output: formatPrice(endpoint?.pricing?.completion),
         },
-        reasoning: extraInfo?.endpoint?.supports_reasoning || false,
-        releasedAt: new Date(model.created * 1000).toISOString().split('T')[0],
-        vision: model.architecture.modality.includes('image') || false,
+        reasoning: endpoint?.supports_reasoning || false,
+        releasedAt: new Date(model.created_at).toISOString().split('T')[0],
+        vision: Array.isArray(inputModalities) && inputModalities.includes('image'),
       };
     });
 
