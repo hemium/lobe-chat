@@ -38,6 +38,7 @@ tmp/
 .env
 .env.local
 .env*.local
+.env.development
 venv/
 .venv/
 
@@ -112,3 +113,5 @@ CLAUDE.local.md
 *.ppt*
 *.doc*
 *.xls*
+
+prd

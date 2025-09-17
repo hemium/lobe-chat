@@ -12,6 +12,7 @@ import { default as bedrock } from './bedrock';
 import { default as bfl } from './bfl';
 import { default as cloudflare } from './cloudflare';
 import { default as cohere } from './cohere';
+import { default as cometapi } from './cometapi';
 import { default as deepseek } from './deepseek';
 import { default as fal } from './fal';
 import { default as fireworksai } from './fireworksai';
@@ -52,6 +53,7 @@ import { default as tencentcloud } from './tencentcloud';
 import { default as togetherai } from './togetherai';
 import { default as upstage } from './upstage';
 import { default as v0 } from './v0';
+import { default as vercelaigateway } from './vercelaigateway';
 import { default as vertexai } from './vertexai';
 import { default as vllm } from './vllm';
 import { default as volcengine } from './volcengine';
@@ -94,6 +96,7 @@ export const LOBE_DEFAULT_MODEL_LIST = buildDefaultModelList({
   bfl,
   cloudflare,
   cohere,
+  cometapi,
   deepseek,
   fal,
   fireworksai,
@@ -134,6 +137,7 @@ export const LOBE_DEFAULT_MODEL_LIST = buildDefaultModelList({
   togetherai,
   upstage,
   v0,
+  vercelaigateway,
   vertexai,
   vllm,
   volcengine,
@@ -157,6 +161,7 @@ export { default as bedrock } from './bedrock';
 export { default as bfl } from './bfl';
 export { default as cloudflare } from './cloudflare';
 export { default as cohere } from './cohere';
+export { default as cometapi } from './cometapi';
 export { default as deepseek } from './deepseek';
 export { default as fal, fluxSchnellParamsSchema } from './fal';
 export { default as fireworksai } from './fireworksai';
@@ -198,6 +203,7 @@ export { default as tencentcloud } from './tencentcloud';
 export { default as togetherai } from './togetherai';
 export { default as upstage } from './upstage';
 export { default as v0 } from './v0';
+export { default as vercelaigateway } from './vercelaigateway';
 export { default as vertexai } from './vertexai';
 export { default as vllm } from './vllm';
 export { default as volcengine } from './volcengine';

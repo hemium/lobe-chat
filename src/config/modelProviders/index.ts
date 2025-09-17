@@ -13,6 +13,7 @@ import BedrockProvider from './bedrock';
 import BflProvider from './bfl';
 import CloudflareProvider from './cloudflare';
 import CohereProvider from './cohere';
+import CometAPIProvider from './cometapi';
 import DeepSeekProvider from './deepseek';
 import FalProvider from './fal';
 import FireworksAIProvider from './fireworksai';
@@ -53,6 +54,7 @@ import TencentcloudProvider from './tencentcloud';
 import TogetherAIProvider from './togetherai';
 import UpstageProvider from './upstage';
 import V0Provider from './v0';
+import VercelAIGatewayProvider from './vercelaigateway';
 import VertexAIProvider from './vertexai';
 import VLLMProvider from './vllm';
 import VolcengineProvider from './volcengine';
@@ -115,6 +117,7 @@ export const LOBE_DEFAULT_MODEL_LIST: ChatModelCard[] = [
   Search1APIProvider.chatModels,
   InfiniAIProvider.chatModels,
   QiniuProvider.chatModels,
+  VercelAIGatewayProvider.chatModels,
 ].flat();
 
 export const DEFAULT_MODEL_PROVIDER_LIST = [
@@ -179,6 +182,8 @@ export const DEFAULT_MODEL_PROVIDER_LIST = [
   AkashChatProvider,
   QiniuProvider,
   NebiusProvider,
+  CometAPIProvider,
+  VercelAIGatewayProvider,
 ];
 
 export const filterEnabledModels = (provider: ModelProviderCard) => {
@@ -203,6 +208,7 @@ export { default as BedrockProviderCard } from './bedrock';
 export { default as BflProviderCard } from './bfl';
 export { default as CloudflareProviderCard } from './cloudflare';
 export { default as CohereProviderCard } from './cohere';
+export { default as CometAPIProviderCard } from './cometapi';
 export { default as DeepSeekProviderCard } from './deepseek';
 export { default as FalProviderCard } from './fal';
 export { default as FireworksAIProviderCard } from './fireworksai';
@@ -244,6 +250,7 @@ export { default as TencentCloudProviderCard } from './tencentcloud';
 export { default as TogetherAIProviderCard } from './togetherai';
 export { default as UpstageProviderCard } from './upstage';
 export { default as V0ProviderCard } from './v0';
+export { default as VercelAIGatewayProviderCard } from './vercelaigateway';
 export { default as VertexAIProviderCard } from './vertexai';
 export { default as VLLMProviderCard } from './vllm';
 export { default as VolcengineProviderCard } from './volcengine';
